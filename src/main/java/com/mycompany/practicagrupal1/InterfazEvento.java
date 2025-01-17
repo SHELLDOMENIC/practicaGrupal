@@ -53,6 +53,11 @@ public class InterfazEvento extends javax.swing.JFrame {
         lblIngresePart.setText("Ingrese Nombre:");
 
         btnRegistar.setText("Registrar");
+        btnRegistar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistarActionPerformed(evt);
+            }
+        });
 
         cmbxParticipante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Participante", "Invitado Especial" }));
 
@@ -168,6 +173,11 @@ public class InterfazEvento extends javax.swing.JFrame {
     private void ckcAlmuerzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckcAlmuerzoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ckcAlmuerzoActionPerformed
+
+    private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
+    InterfazEvento []=
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistarActionPerformed
 
     /**
      * @param args the command line arguments

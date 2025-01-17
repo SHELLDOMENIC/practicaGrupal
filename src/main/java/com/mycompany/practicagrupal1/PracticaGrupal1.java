@@ -11,6 +11,6 @@ package com.mycompany.practicagrupal1;
 public class PracticaGrupal1 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+      
     }
 }
