@@ -175,9 +175,7 @@ public class InterfazEvento extends javax.swing.JFrame {
     }//GEN-LAST:event_ckcAlmuerzoActionPerformed
 
     private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
-    String [] Participantes;
-    String = new Participantes [80];
-    //DOmenica
+    InterfazEvento []=
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistarActionPerformed
 
