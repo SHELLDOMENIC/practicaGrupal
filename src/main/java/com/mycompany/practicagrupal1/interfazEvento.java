@@ -36,12 +36,14 @@ public class InterfazEvento extends javax.swing.JFrame {
         ckcTransporte = new javax.swing.JCheckBox();
         ckcAlmuerzo = new javax.swing.JCheckBox();
         ckcMaterialApoyo = new javax.swing.JCheckBox();
-        btnMañana = new javax.swing.JRadioButton();
+        btnMorning = new javax.swing.JRadioButton();
         btnTarde = new javax.swing.JRadioButton();
         lblHorario = new javax.swing.JLabel();
         lblEscojaCategoria = new javax.swing.JLabel();
         lblServicios = new javax.swing.JLabel();
         btnMostrar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAMostrarDatos = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,8 +77,8 @@ public class InterfazEvento extends javax.swing.JFrame {
 
         ckcMaterialApoyo.setText("Material de Apoyo");
 
-        buttonGroup1.add(btnMañana);
-        btnMañana.setText("Matutino");
+        buttonGroup1.add(btnMorning);
+        btnMorning.setText("Matutino");
 
         buttonGroup1.add(btnTarde);
         btnTarde.setText("Vespertino");
@@ -91,6 +93,15 @@ public class InterfazEvento extends javax.swing.JFrame {
         lblServicios.setText("Servicios Requeridos");
 
         btnMostrar.setText("Historial");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        txtAMostrarDatos.setColumns(20);
+        txtAMostrarDatos.setRows(5);
+        jScrollPane2.setViewportView(txtAMostrarDatos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,24 +112,20 @@ public class InterfazEvento extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbxParticipante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ckcMaterialApoyo)
                             .addComponent(ckcTransporte)
                             .addComponent(ckcAlmuerzo)
+                            .addComponent(cmbxParticipante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblServicios)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnMañana)
+                                .addComponent(btnMorning)
                                 .addGap(86, 86, 86)
-                                .addComponent(btnTarde))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(btnRegistar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
-                                .addComponent(btnMostrar))))
+                                .addComponent(btnTarde)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(lblEscojaCategoria)))
-                .addGap(81, 81, 81))
+                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEvento)
@@ -132,6 +139,14 @@ public class InterfazEvento extends javax.swing.JFrame {
                                 .addComponent(lblIngresePart)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(btnRegistar)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +161,9 @@ public class InterfazEvento extends javax.swing.JFrame {
                 .addComponent(lblEscojaCategoria)
                 .addGap(8, 8, 8)
                 .addComponent(cmbxParticipante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblServicios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addComponent(ckcAlmuerzo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ckcTransporte)
@@ -157,14 +172,19 @@ public class InterfazEvento extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblHorario)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMañana)
-                    .addComponent(btnTarde))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistar)
-                    .addComponent(btnMostrar))
-                .addGap(48, 48, 48))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMorning)
+                            .addComponent(btnTarde))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegistar)
+                            .addComponent(btnMostrar))
+                        .addGap(91, 91, 91))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
 
         pack();
@@ -175,11 +195,48 @@ public class InterfazEvento extends javax.swing.JFrame {
     }//GEN-LAST:event_ckcAlmuerzoActionPerformed
 
     private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
-    String [] Participantes;
-    String = new Participantes [80];
+    String Participant=txtNombre.getName();
+    String Categorias= (String)cmbxParticipante.getSelectedItem();
+    String Almuerzo= Boolean.toString(ckcAlmuerzo.isSelected());
+    String Transporte=Boolean.toString(ckcTransporte.isSelected());
+    String MaterialDeApoyo=Boolean.toString(ckcMaterialApoyo.isSelected());
+  
+    boolean Tarde=(btnTarde.isSelected());
+    boolean Morning= btnMorning.isSelected();
+    
+    
+    if(Morning){
+      turno="Mañana"
+
+    }else if(Tarde){
+            turno="Tarde";
+       }
+    
+    String [] datosUsuario= new String[6];
+    datosUsuario[0]=Participant;
+    datosUsuario[1]=Categorias;
+    datosUsuario[2]=Almuerzo;
+    datosUsuario[3]=Transporte;
+    datosUsuario[4]=MaterialDeApoyo;
+    datosUsuario[5]= Tarde;
+    datosUsuario[6]= Morning;
+    
+    }
+    
     //DOmenica
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+     String datos="";
+     for (int i = 0;i<6; i++){
+         System.out.println("Datos"+datosUsuario[i]);
+          datos=datos+","+datosUsuarios[i];
+     }
+    txtAMostrarDatos.setText(datos);
+     
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +244,7 @@ public class InterfazEvento extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton btnMañana;
+    private javax.swing.JRadioButton btnMorning;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistar;
     private javax.swing.JRadioButton btnTarde;
@@ -197,11 +254,13 @@ public class InterfazEvento extends javax.swing.JFrame {
     private javax.swing.JCheckBox ckcTransporte;
     private javax.swing.JComboBox<String> cmbxParticipante;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblEscojaCategoria;
     private javax.swing.JLabel lblEvento;
     private javax.swing.JLabel lblHorario;
     private javax.swing.JLabel lblIngresePart;
     private javax.swing.JLabel lblServicios;
+    private javax.swing.JTextArea txtAMostrarDatos;
     private javax.swing.JTextArea txtNombre;
     // End of variables declaration//GEN-END:variables
 }
