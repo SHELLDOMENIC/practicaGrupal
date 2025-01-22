@@ -195,24 +195,25 @@ public class InterfazEvento extends javax.swing.JFrame {
     }//GEN-LAST:event_ckcAlmuerzoActionPerformed
 
     private void btnRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistarActionPerformed
-    String Participant=txtNombre.getName();
-    String Categorias= (String)cmbxParticipante.getSelectedItem();
+    String [] Participantes;
+    String Participant = Boolean.toString(txtNombre.getNombre());
+    String Categorias= Boolean.toString(cmbxParticipante.getSelectedItem());
     String Almuerzo= Boolean.toString(ckcAlmuerzo.isSelected());
-    String Transporte=Boolean.toString(ckcTransporte.isSelected());
-    String MaterialDeApoyo=Boolean.toString(ckcMaterialApoyo.isSelected());
+    String Transporte= Boolean.toString(ckcTransporte.isSelected());
+    String MaterialDeApoyo = Boolean.toString(ckcMaterialApoyo.isSelected());
   
-    boolean Tarde=(btnTarde.isSelected());
+    boolean Tarde= btnTarde.isSelected();
     boolean Morning= btnMorning.isSelected();
     
     
     if(Morning){
-      turno="Mañana"
+      turno = "Mañana";
 
     }else if(Tarde){
-            turno="Tarde";
+            turno = "Tarde";
        }
     
-    String [] datosUsuario= new String[6];
+    String [] datosUsuario = new String[6];
     datosUsuario[0]=Participant;
     datosUsuario[1]=Categorias;
     datosUsuario[2]=Almuerzo;
@@ -229,9 +230,9 @@ public class InterfazEvento extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
      String datos="";
-     for (int i = 0;i<6; i++){
+     for (int i = 0 ; i < 6 ; i++){
          System.out.println("Datos"+datosUsuario[i]);
-          datos=datos+","+datosUsuarios[i];
+          datos = datos + "," + datosUsuarios[i];
      }
     txtAMostrarDatos.setText(datos);
      

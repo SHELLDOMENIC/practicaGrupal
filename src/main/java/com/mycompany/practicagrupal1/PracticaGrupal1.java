@@ -11,8 +11,8 @@ package com.mycompany.practicagrupal1;
 public class PracticaGrupal1 {
 
     public static void main(String[] args) {
-        InterfazEvento objInterfazEvento = new InterfazEvento;
-        objInterfazEvento.setVisible(true);
+        datosUsuario objdatosUsuario = new datosUsuario();
+        objdatosUsuario.setVisible(true);
       
     }
 }
